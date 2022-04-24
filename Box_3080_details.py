@@ -13,8 +13,8 @@ for gpus in soup.find_all("div", class_="product-list-item"):  # deepest layer w
 
     item_price = gpus.find("span", class_="pq-price").text  # parsing out price which is within a span with a class
 
-    item_link = gpus.find("div", class_="p-list-title-wrapper").h3.a["href"] # parsing out the link, [] picks out link
+    item_link = gpus.find("div", class_="p-list-title-wrapper").h3.a["href"]  # parsing out the link, [] picks out link
 
-    print(f"GPU name: {item_name}, Price: {item_price}, Link: {item_link}") # formatting our output
+    print(f"GPU name: {item_name}, Price: {item_price}, Link: {item_link}")  # formatting our output
 
-    print() # spaces between our output
+    print()  # spaces between our output
