@@ -17,4 +17,4 @@ for gpus in soup.find_all("div", class_="product-list-item"):  # deepest layer w
 
     print(f"GPU name: {item_name}, Price: {item_price}, Link: {item_link}") # formatting our output
 
-    print()
+    print() # spaces between our output
