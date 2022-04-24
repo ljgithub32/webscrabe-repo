@@ -9,4 +9,5 @@ for gpus in soup.find_all("div", class_="product-list-item"):
 
     item_name = gpus.find("div", class_="p-list-title-wrapper").h3.text
     item_price = gpus.find("span", class_="pq-price").text
-    print(f"GPU name: {item_name}, Price: {item_price}")
+    item_link = gpus.find("div", class_="p-list-title-wrapper").h3.a["href"]
+    print(f"GPU name: {item_name}, Price: {item_price}, Link: {item_link}")
