@@ -1,9 +1,16 @@
 from bs4 import BeautifulSoup
 import requests
+import csv
 
 html_text = requests.get("https://www.box.co.uk/rtx-3080-graphics-cards").text  # pulls html from webpage
 
 soup = BeautifulSoup(html_text, "lxml")  # creates soup object which is the html page
+
+csv_file = open("box_3080_scrape.csv", "w")
+
+csv_writer = csv.writer(csv_file)  # setting which file to write to
+
+csv_writer.writerow(["Name", "Price", "Link"])  # setting up rows headers
 
 for gpus in soup.find_all("div", class_="product-list-item"):  # deepest layer which still contains all info we want
 
@@ -18,3 +25,7 @@ for gpus in soup.find_all("div", class_="product-list-item"):  # deepest layer w
     print(f"GPU name: {item_name}, Price: {item_price}, Link: {item_link}")  # formatting our output
 
     print()  # spaces between our output
+
+    csv_writer.writerow([item_name, item_price, item_link])  # adding variables to csv file (inside loop)
+
+csv_file.close()
